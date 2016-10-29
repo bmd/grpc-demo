@@ -1,0 +1,19 @@
+syntax = "proto2";
+
+package UserAdmin;
+
+service UserService {
+  rpc updateUser (PermissionBlob) returns (PermissionBlob) {}
+}
+
+message PermissionBlob {
+    required string admin_user_email = 1;
+    required string application = 2;
+    repeated Authorization auth = 3;
+}
+
+message Authorization {
+	required string id = 1;
+	required string slug = 2;
+	required string value = 3;
+}
